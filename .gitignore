@@ -131,3 +131,5 @@ dmypy.json
 # VS Code project settings
 .vscode/
 
+# Credentials
+*.yaml
