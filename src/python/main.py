@@ -23,7 +23,7 @@ if __name__ == "__main__":
     parser.add_argument('-o', '--organization', help='Organization ID.', required=True)
     parser.add_argument('-T', '--token', help='Authentication token.', required=True)
     parser.add_argument('-d', '--device', help='Device ID.', required=True)
-    parser.add_argument('-t', '--type', help='Type ID.', required=True)
+    parser.add_argument('-t', '--type', help='Device Type.', required=True)
     arg = parser.parse_args()
 
     # Read device credentials
