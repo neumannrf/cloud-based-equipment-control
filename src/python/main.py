@@ -1,3 +1,5 @@
+#!/usr/bin/env python -B
+
 # Python standard libraries
 import argparse
 import logging
