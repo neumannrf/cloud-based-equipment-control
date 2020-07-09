@@ -53,3 +53,6 @@ class PicoHarp:
                  'CFDZeroCross = {0} mV\n'.format(self.CFDZeroCross) + \
                  '===================================\n'
         return string
+
+    def calibrateParameters(self):
+        pass
