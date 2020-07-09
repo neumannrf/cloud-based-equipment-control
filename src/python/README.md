@@ -24,4 +24,4 @@ The `main.py` file is responsible for parsing the connection credentials that ar
 
 ## Customization
 
-The `src/python/modules/callback_function.py` contains the `myCommandCallback()` function that can be customized. This function is called from `main.py` every time an MQTT command is issued.
+The `src/python/modules/command_callback.py` contains the `myCommandCallback()` function that can be customized. This function is called from `main.py` every time an MQTT command is issued.

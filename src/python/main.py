@@ -9,7 +9,7 @@ import time
 
 # Internal modules (see src/python/modules/) and external libraries (see requirements.txt)
 import wiotp.sdk.device
-from modules.callback_function import myCommandCallback
+from modules.command_callback import myCommandCallback
 
 
 def interruptHandler(signal, frame):
