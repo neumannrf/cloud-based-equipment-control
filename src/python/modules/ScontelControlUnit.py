@@ -7,6 +7,26 @@ class ScontelControlUnit:
     # Standard library
     # culib = ct.WinDLL("C:\\ControlUnit Toolset\\biasbox.dll")
 
+    @classmethod
+    def initializeDevice(cls):
+        pass
+
+    @classmethod
+    def disableDetectorShort(cls):
+        pass
+
+    @classmethod
+    def setCurrentToZero(cls):
+        pass
+
+    @classmethod
+    def enableDetectorShort(cls):
+        pass
+
+    @classmethod
+    def closeDevice(cls):
+        pass
+
     # Initialize class with parameter values
     def __init__(self, detector, Istart, Istop, Istep, average):
         self.Istep = Istep
