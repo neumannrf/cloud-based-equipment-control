@@ -48,3 +48,6 @@ class ScontelControlUnit:
                  'Number of steps = {0}\n'.format(self.steps) + \
                  '===================================\n'
         return string
+
+    def performMeasurement(self):
+        pass
