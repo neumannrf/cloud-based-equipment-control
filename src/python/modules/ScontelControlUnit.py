@@ -38,7 +38,7 @@ class ScontelControlUnit:
 
     # Helper function for printing logs
     def __str__(self):
-        string = '\n===================================\n' + \
+        string = '\n==========================================\n' + \
                  'ScontelControlUnit measurement parameters:\n' + \
                  'Detector = {0}\n'.format(self.detector) + \
                  'Initial current = {0} uA\n'.format(self.Istart) + \
@@ -46,7 +46,7 @@ class ScontelControlUnit:
                  'Current step = {0} uA\n'.format(self.Istep) + \
                  'Time average = {0} s\n'.format(self.average) + \
                  'Number of steps = {0}\n'.format(self.steps) + \
-                 '===================================\n'
+                 '==========================================\n'
         return string
 
     def performMeasurement(self):

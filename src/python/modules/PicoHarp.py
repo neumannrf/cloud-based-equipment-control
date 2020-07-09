@@ -43,7 +43,7 @@ class PicoHarp:
 
     # Helper function for printing logs
     def __str__(self):
-        string = '\n===================================\n' + \
+        string = '\n================================\n' + \
                  'PicoHarp measurement parameters:\n' + \
                  'Acquisition time = {0} ms\n'.format(self.tacq) + \
                  'Offset time = {0} ns\n'.format(self.offset) + \
@@ -51,7 +51,7 @@ class PicoHarp:
                  'SyncDivider = {0}\n'.format(self.syncDivider) + \
                  'CFDLevel = {0} mV\n'.format(self.CFDLevel) + \
                  'CFDZeroCross = {0} mV\n'.format(self.CFDZeroCross) + \
-                 '===================================\n'
+                 '================================\n'
         return string
 
     def calibrateParameters(self):
