@@ -12,7 +12,27 @@ class PicoHarp:
     FLAG_OVERFLOW = 0x0040
     # phlib = ct.CDLL("C:\\Windows\\SysWOW64\\phlib.dll")
 
-    # Initialize class with parameter values
+    @classmethod
+    def closeDevices(cls):
+        pass
+
+    @classmethod
+    def tryfunc(cls, retcode, funcName):
+        pass
+
+    @classmethod
+    def checkLibraryVersion(cls):
+        pass
+
+    @classmethod
+    def searchForDevices(cls):
+        pass
+
+    @classmethod
+    def initializeDevice(cls):
+        pass
+
+    # Load measurement parameter values
     def __init__(self, tacq, offset, binning, syncDivider, CFDLevel, CFDZeroCross):
         self.tacq = tacq
         self.offset = offset
