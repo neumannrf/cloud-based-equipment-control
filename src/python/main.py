@@ -2,14 +2,18 @@
 
 # Python standard libraries
 import argparse
+import json
 import logging
+import os
 import signal
 import sys
 import time
 
-# Internal modules (see src/python/modules/) and external libraries (see requirements.txt)
+# External libraries (see requirements.txt)
 import wiotp.sdk.device
-from modules.command_callback import myCommandCallback
+
+# Internal modules (see src/python/modules/)
+from modules.original_command_callback import originalCommandCallback
 
 
 def interruptHandler(signal, frame):
@@ -40,8 +44,17 @@ if __name__ == "__main__":
         sys.exit()
 
     client.logger.setLevel(logging.DEBUG)
-    client.commandCallback = myCommandCallback
+    client.commandCallback = originalCommandCallback
     client.connect()
 
 while True:
     time.sleep(1)
+
+    try:
+        filename = os.getcwd() + '/logs/response.json'
+        with open(filename, 'r', encoding='utf-8') as f:
+            response_json = json.load(f)
+        os.remove(filename)
+        client.publishEvent('measurement', 'json', response_json)
+    except (IOError, OSError):
+        pass
