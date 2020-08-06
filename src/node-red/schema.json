@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/node-red-kit.json",
+  "title": "Validate inputs",
+  "type": "object",
+  "required": [
+    "binning",
+    "offset",
+    "tacq",
+    "syncDivider",
+    "CFDZeroCross0",
+    "CFDZeroCross1",
+    "CFDLevel0",
+    "CFDLevel1",
+    "detector",
+    "Istart",
+    "Istop",
+    "Istep",
+    "average"
+  ],
+  "properties": {
+    "binning": {
+      "$id": "#root/binning",
+      "title": "Binning",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 7,
+      "examples": [
+        0
+      ],
+      "default": 0
+    },
+    "offset": {
+      "$id": "#root/offset",
+      "title": "Offset",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100000,
+      "examples": [
+        0
+      ],
+      "default": 0
+    },
+    "tacq": {
+      "$id": "#root/tacq",
+      "title": "Tacq",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 3600000,
+      "examples": [
+        1000
+      ],
+      "default": 1000
+    },
+    "syncDivider": {
+      "$id": "#root/syncDivider",
+      "title": "Syncdivider",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8,
+      "examples": [
+        1
+      ],
+      "default": 1
+    },
+    "CFDZeroCross0": {
+      "$id": "#root/CFDZeroCross0",
+      "title": "Cfdzerocross0",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20,
+      "examples": [
+        10
+      ],
+      "default": 10
+    },
+    "CFDZeroCross1": {
+      "$id": "#root/CFDZeroCross1",
+      "title": "Cfdzerocross1",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20,
+      "examples": [
+        10
+      ],
+      "default": 10
+    },
+    "CFDLevel0": {
+      "$id": "#root/CFDLevel0",
+      "title": "Cfdlevel0",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 800,
+      "examples": [
+        50
+      ],
+      "default": 50
+    },
+    "CFDLevel1": {
+      "$id": "#root/CFDLevel1",
+      "title": "Cfdlevel1",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 800,
+      "examples": [
+        30
+      ],
+      "default": 30
+    },
+    "detector": {
+      "$id": "#root/detector",
+      "title": "Detector",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ],
+      "examples": [
+        0
+      ],
+      "default": 0
+    },
+    "Istart": {
+      "$id": "#root/Istart",
+      "title": "Istart",
+      "type": "number",
+      "minimum": -30,
+      "maximum": 0,
+      "examples": [
+        -20
+      ],
+      "default": -20
+    },
+    "Istop": {
+      "$id": "#root/Istop",
+      "title": "Istop",
+      "type": "number",
+      "minimum": -30,
+      "maximum": 0,
+      "examples": [
+        -21
+      ],
+      "default": -21
+    },
+    "Istep": {
+      "$id": "#root/Istep",
+      "title": "Istep",
+      "type": "number",
+      "minimum": -1,
+      "maximum": -0.1,
+      "examples": [
+        -0.2
+      ],
+      "default": -0.2
+    },
+    "average": {
+      "$id": "#root/average",
+      "title": "Average",
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10,
+      "examples": [
+        1
+      ],
+      "default": 1
+    }
+  }
+}
