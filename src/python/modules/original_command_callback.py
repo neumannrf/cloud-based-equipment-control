@@ -192,10 +192,13 @@ def originalCommandCallback(cmd):
     np.savetxt(filename, DataOut, fmt=format, header=hdrtxt)
 
     response_json = [{
-        'series': ['Detector {0} (counts)'.format(detector)],
-        'data': [DataOut[:, 2 + detector].tolist()],
-        'labels': DataOut[:, detector].tolist()
-        }]
+        'series': ['Detector 0', 'Detector 1'],
+        'data': [
+            [{'x': I0[i], 'y': av_ctr0[i]} for i in range(steps)],
+            [{'x': I1[i], 'y': av_ctr1[i]} for i in range(steps)]
+        ],
+        'labels': ['']
+    }]
 
     with open(os.getcwd() + '/../logs/response.json', 'w', encoding='utf-8') as f:
         json.dump(response_json, f, ensure_ascii=False, sort_keys=True)
