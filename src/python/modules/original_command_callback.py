@@ -194,8 +194,8 @@ def originalCommandCallback(cmd):
     response_json = [{
         'series': ['Detector 0', 'Detector 1'],
         'data': [
-            [{'x': I0[i], 'y': av_ctr0[i]} for i in range(steps)],
-            [{'x': I1[i], 'y': av_ctr1[i]} for i in range(steps)]
+            [{'x': 1000 * I0[i], 'y': av_ctr0[i]} for i in range(steps)],
+            [{'x': 1000 * I1[i], 'y': av_ctr1[i]} for i in range(steps)]
         ],
         'labels': ['']
     }]
