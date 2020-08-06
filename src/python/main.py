@@ -51,7 +51,7 @@ while True:
     time.sleep(1)
 
     try:
-        filename = os.getcwd() + '/logs/response.json'
+        filename = os.getcwd() + '/../logs/response.json'
         with open(filename, 'r', encoding='utf-8') as f:
             response_json = json.load(f)
         os.remove(filename)

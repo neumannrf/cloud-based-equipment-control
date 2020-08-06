@@ -205,5 +205,5 @@ def originalCommandCallback(cmd):
                                  'values': [DataOut[i] for i in range(steps)],
                                  }
                      }
-    with open(os.getcwd() + '/logs/response.json', 'w', encoding='utf-8') as f:
+    with open(os.getcwd() + '/../logs/_response.json', 'w', encoding='utf-8') as f:
         json.dump(response_json, f, ensure_ascii=False, sort_keys=True)
