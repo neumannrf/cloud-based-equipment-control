@@ -202,7 +202,7 @@ def originalCommandCallback(cmd):
                                     'CFDZeroCross1': CFDZeroCross1,
                                     },
                      'results': {'header': ['I0/uA', 'I1/uA', 'av_ctr_0/s', 'av_ctr_1/s'],
-                                 'values': [DataOut[i] for i in range(steps)],
+                                 'values': [DataOut[i].tolist() for i in range(DataOut.shape[0])],
                                  }
                      }
     with open(os.getcwd() + '/../logs/_response.json', 'w', encoding='utf-8') as f:
