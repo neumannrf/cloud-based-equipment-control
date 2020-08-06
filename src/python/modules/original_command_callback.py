@@ -191,19 +191,11 @@ def originalCommandCallback(cmd):
                                                                             CFDLevel1)
     np.savetxt(filename, DataOut, fmt=format, header=hdrtxt)
 
-    response_json = {'parameters': {'offset': offset,
-                                    'binning': binning,
-                                    'detector': detector,
-                                    'syncDivider': syncDivider,
-                                    'average': average,
-                                    'CFDLevel0': CFDLevel0,
-                                    'CFDLevel1': CFDLevel1,
-                                    'CFDZeroCross0': CFDZeroCross0,
-                                    'CFDZeroCross1': CFDZeroCross1,
-                                    },
-                     'results': {'header': ['I0/uA', 'I1/uA', 'av_ctr_0/s', 'av_ctr_1/s'],
-                                 'values': [DataOut[i].tolist() for i in range(DataOut.shape[0])],
-                                 }
-                     }
-    with open(os.getcwd() + '/../logs/_response.json', 'w', encoding='utf-8') as f:
+    response_json = [{
+        'series': ['Detector {0} (counts)'.format(detector)],
+        'data': [DataOut[:, 2 + detector].tolist()],
+        'labels': DataOut[:, detector].tolist()
+        }]
+
+    with open(os.getcwd() + '/../logs/response.json', 'w', encoding='utf-8') as f:
         json.dump(response_json, f, ensure_ascii=False, sort_keys=True)
