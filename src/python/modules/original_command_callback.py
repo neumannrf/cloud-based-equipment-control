@@ -180,8 +180,8 @@ def originalCommandCallback(cmd):
     culib.bb_Close()
 
     # Save count rate versus current data with metadata to remote file
-    DataOut = np.column_stack((I0, I1, av_ctr0, av_ctr1))
-    format = ('%5.3f', '%5.3f', '%6i', '%6i')
+    output = np.column_stack((I0, I1, av_ctr0, av_ctr1))
+    fmt = ('%5.3f', '%5.3f', '%6i', '%6i')
     hdrtxt = 'Detector=%d CFDLevel0=%dmV CFDLevel1=%dmV \n' % (detector, CFDLevel0, CFDLevel1)
     hdrtxt += 'I0/uA I1/uA av_ctr_0/s av_ctr_1/s n \n'
     filetime = time.strftime("%Y%m%d-%H%M")
@@ -189,13 +189,13 @@ def originalCommandCallback(cmd):
     filename = filefolder + filetime + '_Det=%d_CFD0=%dmV_CFD1=%dmV.txt' % (detector,
                                                                             CFDLevel0,
                                                                             CFDLevel1)
-    np.savetxt(filename, DataOut, fmt=format, header=hdrtxt)
+    np.savetxt(filename, output, fmt=fmt, header=hdrtxt)
 
+    # Build response JSON object
     response_json = [{
-        'series': ['Detector 0', 'Detector 1'],
+        'series': ['Detector {0}'.format(detector)],
         'data': [
-            [{'x': 1000 * I0[i], 'y': av_ctr0[i]} for i in range(steps)],
-            [{'x': 1000 * I1[i], 'y': av_ctr1[i]} for i in range(steps)]
+            [{'x': 1000 * output[i, detector], 'y': output[i, 2 + detector]} for i in range(steps)]
         ],
         'labels': ['']
     }]
