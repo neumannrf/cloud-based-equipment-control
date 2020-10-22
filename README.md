@@ -8,6 +8,8 @@ Control lab equipment and perform experiments remotely from a cloud-based UI.
 
 * PicoQuant driver
   * [PHLib Programming Library for PicoHarp 300](https://github.com/PicoQuant/PH300-v3.x-Demos)
+  * [TTTR acquisition demo](https://github.com/PicoQuant/PH300-v3.x-Demos/blob/master/demo_python_preliminary/32/TTTRmode/tttrmode.py)
+  * [TTTR readout demo](https://github.com/PicoQuant/PicoQuant-Time-Tagged-File-Format-Demos/blob/master/PTU/Python/Read_PTU.py)
 * Keysight driver
   * [Windows & Linux](https://www.keysight.com/main/software.jspx?ckey=2175637&nid=-33330.977662&cc=eng&lc=eng)
 * National Instruments driver
