@@ -2,31 +2,26 @@ import struct
 
 
 def gotOverflow(outputfile, recNum):
-    outputfile.write(f'{recNum:07d}\tOFL\t*\n')
+    outputfile.write(f'{recNum:07d} OFL *\n')
 
 
 def gotMarker(outputfile, recNum, timeTag, markers):
-    outputfile.write(f'{recNum:07d}\tMAR\t{markers:x}\t\t{timeTag:015d}\n')
+    outputfile.write(f'{recNum:07d} MAR {markers:x} {timeTag:015d}\n')
 
 
 def gotPhotonT2(outputfile, recNum, timeTag, channel, globRes=4.0e-12):
     trueTime = int(timeTag * globRes * 1.0e12)
-    outputfile.write(f'{recNum:07d}\tCHN\t{channel:x}\t\t{timeTag:015d}\t{trueTime:015d}\n')
+    outputfile.write(f'{recNum:07d} CHN {channel:x} {timeTag:015d} {trueTime:015d}\n')
 
 
 def gotPhotonT3(outputfile, recNum, timeTag, channel, dtime, globRes=4.0e-12):
-    outputfile.write("%u CHN %1x %u %8.0lf %10u\n" % (recNum,
-                                                      channel,
-                                                      timeTag,
-                                                      (timeTag * globRes * 1e9),
-                                                      dtime))
+    trueTime = int(timeTag * globRes * 1.0e9)
+    outputfile.write(f'{recNum:07d} CHN {channel:x} {timeTag:015d} {trueTime:015d} {dtime:10d}\n')
 
 
 def read_T2(inputfile, outputfile, oflcorrection=0):
-    print("PicoHarp T2 data")
-    outputfile.write("\n-----------------------\n")
-    outputfile.write("PicoHarp T2 data\n")
-    outputfile.write("\nrecord#\tchannel\tnsync\t\t\t\t\t\ttruetime/ps\n")
+    print("PicoHarp T2 data...")
+    outputfile.write('# event channel nsync truetime/ps\n')
 
     T2WRAPAROUND = 210698240
     recNum = 0
@@ -61,10 +56,8 @@ def read_T2(inputfile, outputfile, oflcorrection=0):
 
 
 def read_T3(inputfile, outputfile, oflcorrection=0, dlen=0):
-    print("PicoHarp T3 data")
-    outputfile.write("\n-----------------------\n")
-    outputfile.write("PicoHarp T3 data\n")
-    outputfile.write("\nrecord#\tchannel\tnsync\t\t\t\t\t\ttruetime/ns\tdtime\n")
+    print("PicoHarp T3 data...")
+    outputfile.write('# event channel nsync truetime/ns dtime\n')
 
     T3WRAPAROUND = 65536
     recNum = 0

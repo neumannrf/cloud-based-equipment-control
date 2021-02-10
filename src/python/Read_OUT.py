@@ -24,7 +24,7 @@ parser.add_argument('--mode',
                     help='TTTR mode of the input file.')
 arg = parser.parse_args()
 
-with open(arg.input_file, "rb") as ifile, open(arg.output_file, "w", encoding="utf-16le") as ofile:
+with open(arg.input_file, "rb") as ifile, open(arg.output_file, "w", encoding="utf-8") as ofile:
     if arg.mode == 'T2':
         read_T2(ifile, ofile)
     elif arg.mode == 'T3':
